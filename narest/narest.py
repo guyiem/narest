@@ -190,7 +190,7 @@ def nb_valid_windows(df,longueur_fenetre,modif_output=None):
     """
     npf = nan_by_window(df,longueur_fenetre)
     if modif_output == "pc": # on retourne le pourcentage de fenêtres valides
-        return (npf==0).sum()/((npf>0).sum()) * 100
+        return (npf==0).sum()/((npf>=0).sum()) * 100
     elif modif_output is None: # sinon on retourne la position des fenêtres valides
         return npf==0
     else:
